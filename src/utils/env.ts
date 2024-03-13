@@ -9,19 +9,18 @@ const getVar = (name) => {
 };
 
 const Env = {
-//   jwt: {
-//     crypt_salt: getVar('CRYPT_SALT'),
-//     expiry: getVar('EXPIRATION'),
-//   },
+  jwt: {
+    crypt_salt: getVar('CRYPT_SALT'),
+    expiry: getVar('EXPIRATION'),
+  },
   database: {
     mongo_url: getVar('DATABASE_URL'),
   },
   baseurl:{
     url :getVar('BASE_URL')
-  }
-//   logs: {
+  },
+  //   logs: {
 //     dir: getVar('LOGS_DIR'),
 //   },
-  
 };
 export default Env;
