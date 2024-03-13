@@ -1,0 +1,1 @@
+export const EXPIRATION_PERIOD_IN_DAYS = 15;
