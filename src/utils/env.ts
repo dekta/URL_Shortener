@@ -19,8 +19,10 @@ const Env = {
   baseurl:{
     url :getVar('BASE_URL')
   },
-  //   logs: {
-//     dir: getVar('LOGS_DIR'),
-//   },
+  redis:{
+    redis_server: getVar('REDIS_SERVER')
+
+  }
+ 
 };
 export default Env;
