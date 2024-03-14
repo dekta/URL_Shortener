@@ -4,6 +4,7 @@ import CreateUrlDto from './dto/create-urls.dto';
 import { Response } from 'express';
 import { Public } from 'src/utils/decorators/public';
 import { APIResponse } from 'src/utils/response.util';
+import { Throttle } from '@nestjs/throttler';
 
 
 
@@ -14,6 +15,7 @@ export class UrlsController {
   ) {}
     
     // Api for creating short url
+    @Throttle({ default: { limit: 5, ttl: 60000 } })
     @Post('/shorturl')
     async shortUrl(@Body()createUrlDto:CreateUrlDto,@Request() req){
         try{
