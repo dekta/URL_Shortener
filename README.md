@@ -52,7 +52,7 @@ This repository contains a sophisticated URL-shortening service developed to not
     - **Load Balancing**: Incoming traffic is evenly distributed across multiple instances using a load balancer. This ensures optimal resource utilization and prevents any individual server from being overwhelmed by traffic spikes.
     - **Database Scalability**: We can employ scalable database solutions that support horizontal scaling, such as sharding or replication. This allows us to handle growing data volumes and concurrent requests without sacrificing performance.
     - **Caching with Redis**: Redis is used for caching frequently accessed data, such as shortened URLs and analytics results. By caching data in memory, we reduce the load on the database and improve response times for users.
-    - **Rate Limiting**: To prevent abuse of the service and ensure fair usage, we implement rate limiting. Rate limiting controls the number of requests a user can make within a certain time period, helping to maintain system stability and performance under heavy loads.
+    - **Rate Limiting**: To prevent abuse of the service and ensure fair usage, we implement rate limiting. Rate limiting controls the number of requests a user can make within a certain time period, helping to maintain system stability and performance under heavy loads. For rate-limiting, throttler Nestjs package is used.
 
 
 
