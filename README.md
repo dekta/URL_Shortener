@@ -4,7 +4,7 @@ This repository contains a sophisticated URL-shortening service developed to not
 
 ## Contents
 - [Installation & Getting started](#installation--getting-started)
-- [Deployed](#deplolyed-app)
+- [Deployed](#deployed-app)
 - [Demo](#demo)
 - [Built With](#built-with)
 - [Approach Documentation](#approach-documentation)
