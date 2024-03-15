@@ -5,7 +5,7 @@ export type UrlsDocument = HydratedDocument<Url>;
 
 class Link_Stats {
     @Prop({default:'unknown'})
-    sources: string;
+    referral_source: string;
 
     @Prop({default:'unknown'})
     browser: string;

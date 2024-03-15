@@ -27,8 +27,9 @@ export class UrlsService {
         const browser = device.client===null?'Unknown':device.client.name 
         const os = device.os===null?'Unknown':device.os.name 
         const deviceType = device.device===null?'Unknown': device.device.type
+        const  referralSource = Env.baseurl.url
         if (cachedUrl) {
-            this.updateDocument(urlCode,browser,os,deviceType)
+            this.updateDocument(urlCode,browser,os,deviceType,referralSource)
             return cachedUrl;
         }
         const url = await this.urlModel.findOne({ urlCode });
@@ -36,7 +37,7 @@ export class UrlsService {
             if(url.clicks>MAX_CLICKS_TO_CACHE){
                 await this.redis.set(urlCode,url.longUrl,'EX', EXPIRATION_TIME_IN_SEC)
             }
-            this.updateDocument(urlCode,browser,os,deviceType)
+            this.updateDocument(urlCode,browser,os,deviceType,referralSource)
             return url.longUrl
        }
        else{
@@ -44,7 +45,7 @@ export class UrlsService {
        }
     }
 
-    async updateDocument(urlCode:string,browser:string,os:string,device:string){
+    async updateDocument(urlCode:string,browser:string,os:string,device:string,referralSource:string){
         return await this.urlModel.findOneAndUpdate(
             { urlCode},
             { $inc: { clicks: 1 },$push: { 
@@ -52,6 +53,7 @@ export class UrlsService {
                         device: device, 
                         browser: browser,
                         os:os,
+                        referral_source:referralSource,
                         clickedAt: new Date() 
                     } 
                 } },
