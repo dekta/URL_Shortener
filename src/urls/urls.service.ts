@@ -24,6 +24,7 @@ export class UrlsService {
    async redirectUrl(urlCode:string,userAgent:any){
         const device = this.deviceDetector.parse(userAgent);
         const cachedUrl = await this.redis.get(urlCode);
+        console.log(cachedUrl)
         const browser = device.client===null?'Unknown':device.client.name 
         const os = device.os===null?'Unknown':device.os.name 
         const deviceType = device.device===null?'Unknown': device.device.type
@@ -68,7 +69,7 @@ export class UrlsService {
         }
         const uid = new ShortUniqueId({ length: 10 });
         const urlCode = uid.rnd()
-        let url = await this.urlModel.findOne({longUrl})
+        let url = await this.urlModel.findOne({userId,longUrl})
         if(url){
             return {shortUrl:url.shortUrl,longUrl:url.longUrl}
         }
