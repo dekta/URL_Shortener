@@ -9,7 +9,7 @@ import {
 export class CreateAuthDto {
   @IsString()
   @IsOptional()
-  name: string;
+  name?: string;
 
   @IsEmail()
   @IsNotEmpty()
