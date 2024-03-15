@@ -24,8 +24,9 @@ This repository contains a sophisticated URL-shortening service developed to not
     - `npm run start:dev`
 
 
-## Deplolyed App
-Backend: ''
+## Deployed App
+Backend: 'https://url-shortener-7jos.onrender.com'
+platform = render
 
 ## Demo
 
@@ -44,14 +45,14 @@ Backend: ''
     - **Number of Clicks**: Tracks the total number of clicks on each shortened URL.
     - **Referral Sources**: Records the sources from which users accessed the shortened URLs.
     - **Time-based Click Analysis**: This feature enables users to identify peak usage times by analyzing the most active hours for URL clicks. By recording daily, weekly, and monthly click counts, users gain insights into usage patterns over different time intervals. We accomplish this by storing relevant data in our database and aggregating it to generate analytics reports. These reports are accessible via an API, allowing users to retrieve insights programmatically.
-    - **Device and Browser Analysis**: This feature records the types of devices,os and browsers used to access the shortened URLs. It achieves this by utilizing the DeviceDetector npm package, which accurately identifies and categorizes the various devices and browsers accessing the URLs.
+    - **Device and Browser Analysis**: This feature records the types of devices, OS and browsers used to access the shortened URLs. It achieves this by utilizing the DeviceDetector npm package, which accurately identifies and categorizes the various devices and browsers accessing the URLs.
 
 ### Scalability 
 - To ensure scalability, we can employ several strategies:
     - **Optimized Backend**: Our backend, built with Nest.js and TypeScript, is designed for efficiency and performance.
     - **Load Balancing**: Incoming traffic is evenly distributed across multiple instances using a load balancer. This ensures optimal resource utilization and prevents any individual server from being overwhelmed by traffic spikes.
     - **Database Scalability**: We can employ scalable database solutions that support horizontal scaling, such as sharding or replication. This allows us to handle growing data volumes and concurrent requests without sacrificing performance.
-    - **Caching with Redis**: Redis is used for caching frequently accessed data, such as shortened URLs and analytics results.I By caching data in memory, we reduce the load on the database and improve response times for users.
+    - **Caching with Redis**: Redis is used for caching frequently accessed data, such as shortened URLs and analytics results. By caching data in memory, we reduce the load on the database and improve response times for users.
     - **Rate Limiting**: To prevent abuse of the service and ensure fair usage, we implement rate limiting. Rate limiting controls the number of requests a user can make within a certain time period, helping to maintain system stability and performance under heavy loads.
 
 
@@ -60,7 +61,7 @@ Backend: ''
 
 ### Base API
 - **Local** = `http://localhost:3000`
-- **Deployed** = ``
+- **Deployed** = `https://url-shortener-7jos.onrender.com`
 
 ### User Authentication APIs
 
