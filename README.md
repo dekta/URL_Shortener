@@ -4,8 +4,7 @@ This repository contains a sophisticated URL-shortening service developed to not
 
 ## Contents
 - [Installation & Getting started](#installation--getting-started)
-- [Usage](#usage)
-- [Deplolyed](#deplolyed-app)
+- [Deployed](#deplolyed-app)
 - [Demo](#demo)
 - [Built With](#built-with)
 - [Approach Documentation](#approach-documentation)
@@ -25,8 +24,8 @@ This repository contains a sophisticated URL-shortening service developed to not
 
 
 ## Deployed App
-Backend: 'https://url-shortener-7jos.onrender.com'
-platform = render
+- Backend: 'https://url-shortener-7jos.onrender.com'
+- Platform = render
 
 ## Demo
 
