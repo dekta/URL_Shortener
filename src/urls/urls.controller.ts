@@ -2,8 +2,8 @@ import { Body, Controller, Get, Param, Post, Request, Res } from '@nestjs/common
 import { UrlsService } from './urls.service';
 import CreateUrlDto from './dto/create-urls.dto';
 import { Response } from 'express';
-import { Public } from 'src/utils/decorators/public';
-import { APIResponse } from 'src/utils/response.util';
+import { Public } from '../utils/decorators/public';
+import { APIResponse } from '../utils/response.util';
 import { Throttle } from '@nestjs/throttler';
 
 
