@@ -2,7 +2,7 @@ import { Injectable, InternalServerErrorException, UnauthorizedException } from 
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { InjectModel } from '@nestjs/mongoose';
-import { Auth, AuthsDocument } from './entities/auth.entity';
+import { Auth } from './entities/auth.entity';
 import { Model } from 'mongoose';
 import { CreateAuthDto } from './dto/create-auth.dto';
 
@@ -12,29 +12,29 @@ import { CreateAuthDto } from './dto/create-auth.dto';
 export class AuthService {
   constructor(
     private jwtService: JwtService,
-    @InjectModel(Auth.name) private AuthModel: Model<AuthsDocument>
+    @InjectModel(Auth.name) private AuthModel: Model<Auth>
   ) {}
 
   async create(createAuthDto: CreateAuthDto){
     const {name, email, password } = createAuthDto;
-    const userExist = await this.AuthModel.findOne({email})
-    if(!userExist){
+    try{
+      const userExist = await this.AuthModel.findOne({email})
+      if(!userExist){
         const salt = await bcrypt.genSalt();
         const hashedPassword = await bcrypt.hash(password, salt);
-        const user = this.AuthModel.create({name, email, password: hashedPassword });
-        try{
-            (await user).save()
-            return {msg:'Signup Successfully'}
-        }
-        catch(error){
-            throw new InternalServerErrorException();
-        }
-    }
-    else{
+        this.AuthModel.create({name, email, password: hashedPassword });
+        return {msg:'Signup Successfully'}
+      }
+      else{
         return {msg:'User already exists'}
-    }  
+      } 
+      }
+      catch(error){
+            throw new InternalServerErrorException();
+      }
+    
+     
   }
-
 
   findOne(data:object) {
     return this.AuthModel.findOne(data)

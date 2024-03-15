@@ -1,11 +1,11 @@
 import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { Document, HydratedDocument } from 'mongoose';
 import { v4 as uuidv4 } from 'uuid';
 
 
-export type AuthsDocument = HydratedDocument<Auth>;
+// export type AuthsDocument = HydratedDocument<Auth>;
 @Schema({ timestamps: true })
-export class Auth {
+export class Auth extends Document {
   @Prop({
     type: String,
     default: function genUUID() {
